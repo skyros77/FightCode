@@ -10,7 +10,6 @@ var Robot = function(tank) {
   // general data
   this.arenaCenter = {x:tank.arenaWidth/2,y:tank.arenaHeight/2};
   this.zero = {x:0,y:0};
-  this.seed=1234; 
 };
 
 var Tank = Robot.prototype;
@@ -99,30 +98,16 @@ class Utils {
     return angle;
   }  
 
-  static test(txt)
-  {
-    return txt;
-  }
-  
   // random number between 0-1.  Requires an x/y position as a random seed
   static randNum(pos)
   {
     return (pos.x * pos.y % 100 / 100).toFixed(1)
   }
   
-  
   // random number in a range. Requires an x/y position as a random seed
   static randRange(min, max, pos) {
     return Math.floor(this.randNum(pos) * (max - min + 1)) + min;
 	}
-}
-
-function random()
-{
- 	seed = Math.pow(seed,2) + '';
-  seed = parseInt(seed.substring(0,4));
-  var num = seed/9999*100;
-	return num;
 }
 
 /* TANK UTILITIES */
