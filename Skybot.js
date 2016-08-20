@@ -32,8 +32,8 @@ Tank.onIdle = function(ev) {
   var cannonAngle = tank.cannonAbsoluteAngle;
   var tankAngle = tank.angle;
 	this.eBearing = getAngle(tank.position,this.arenaCenter);  
-  var cannonDelta = getSignedAngle(cannonAngle,this.eBearing);
-  var dir = cannonDelta > 0 ? 1 : -1;   
+  var delta = getAngleDelta(cannonAngle,this.eBearing);
+  var dir = delta > 0 ? 1 : -1;   
   tank.rotateCannon(dir);            
   //tank.log("enemyBearing: " + bearing + " MyBearing: " + cannonAngle + " delta: " + delta + " rotDir: " + rot); 
 */
@@ -44,12 +44,12 @@ Tank.onIdle = function(ev) {
   }
   else
   {
-  	var cannonAngle = tank.cannonAbsoluteAngle;
-  	var bearing = getAngle(tank.position,this.ePos);     
-  	var angle = bearing-cannonAngle;
+		var cannonAngle = tank.cannonAbsoluteAngle;
+		var bearing = getAngle(tank.position,this.ePos);     
+		var angle = bearing-cannonAngle;
 
 		tank.log(angle); 
-  	tank.rotateCannon(angle);    
+		tank.rotateCannon(angle);    
   }
 */    
 }
@@ -91,7 +91,7 @@ class Utils {
   }
 
   // get smallest angle
-  static getSignedAngle(source,target)
+  static getAngleDelta(source,target)
   {
     var angle = target-source;
     angle += (angle > 180) ? -360 : (angle < -180) ? 360 : 0;
