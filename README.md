@@ -1,1 +1,2 @@
-# FightCode bots
+# FightCodeGame bots
+http://www.fightcodegame.com
